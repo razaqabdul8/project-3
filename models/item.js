@@ -1,6 +1,6 @@
 // Creating our Event model
 module.exports = function(sequelize, DataTypes) {
-  const Event = sequelize.define("Item", {
+  const Item = sequelize.define("Item", {
     // The event name cannot be null, and must be a proper email before creation
     name: {
       type: DataTypes.STRING,
