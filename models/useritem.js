@@ -1,6 +1,6 @@
 // Creating our Event model
 
 module.exports = function(sequelize) {
-  const Userevent = sequelize.define("Userevent");
-  return Userevent;
+  const Useritem = sequelize.define("Useritem");
+  return Useritem;
 };
