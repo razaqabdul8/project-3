@@ -33,13 +33,13 @@ Object.keys(db).forEach(function(modelName) {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 db.User = require("./user.js")(sequelize, Sequelize);
-db.Event = require("./item.js")(sequelize, Sequelize);
+db.Item = require("./item.js")(sequelize, Sequelize);
 
-db.Event.belongsToMany(db.User, {
+db.Item.belongsToMany(db.User, {
   through: "Useritem"
 
 });
-db.User.belongsToMany(db.Event, {
+db.User.belongsToMany(db.Item, {
   through: "Useritem"
 
 });
