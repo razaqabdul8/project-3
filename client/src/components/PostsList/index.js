@@ -6,7 +6,7 @@ import { useStoreContext } from "../../utils/GlobalState";
 import { REMOVE_POST, UPDATE_POSTS, LOADING } from "../../utils/actions";
 import API from "../../utils/API";
 
-function PostsList() {
+function MyItemList() {
   const [state, dispatch] = useStoreContext();
 
   const removePost = id => {
@@ -38,8 +38,8 @@ function PostsList() {
 
   return (
     <div>
-      <h1>All Blog Posts</h1>
-      <h3 className="mb-5 mt-5">Click on a post to view</h3>
+      <h1>All My Items</h1>
+      <h3 className="mb-5 mt-5">Click on a post to view item</h3>
       {state.posts.length ? (
         <List>
           {state.posts.map(post => (
@@ -54,7 +54,7 @@ function PostsList() {
           ))}
         </List>
       ) : (
-        <h3>You haven't added any posts yet!</h3>
+        <h3>You haven't added any item yet!</h3>
       )}
       <div className="mt-5">
         <Link to="favorites">View favorites</Link>
@@ -63,4 +63,4 @@ function PostsList() {
   );
 }
 
-export default PostsList;
+export default MyItemList;
