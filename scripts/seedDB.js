@@ -5,10 +5,10 @@ const db = require("../models");
 
 mongoose.connect(
   process.env.MONGODB_URI ||
-  "mongodb://localhost/reactreadinglist"
+  "mongodb://localhost/project3demo"
 );
 
-const bookSeed = [
+const listSeed = [
   {
     title: "The Dead Zone",
     author: "Stephen King",
@@ -122,10 +122,25 @@ const bookSeed = [
     date: new Date(Date.now())
   }
 ];
-
-db.Book
+const userSeed = [{
+  email:"yigezu.mulu@gmail.com",
+  password: "Naod0512"
+}]
+db.User
   .remove({})
-  .then(() => db.Book.collection.insertMany(bookSeed))
+  .then(() => db.User.collection.insertMany(userSeed))
+  .then(data => {
+    console.log(data.result.n + " records inserted!");
+    process.exit(0);
+  })
+  .catch(err => {
+    console.error(err);
+    process.exit(1);
+  });
+
+  db.List
+  .remove({})
+  .then(() => db.List.collection.insertMany(listSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);
