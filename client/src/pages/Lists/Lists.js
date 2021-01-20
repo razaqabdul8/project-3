@@ -6,9 +6,9 @@ import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
 import { Input, TextArea, FormBtn } from "../../components/Form";
 
-function Books() {
+function Lists() {
   // Setting our component's initial state
-  const [books, setBooks] = useState([])
+  const [lists, setLists] = useState([])
   const [formObject, setFormObject] = useState({
     title: "",
     author: "",
@@ -17,22 +17,22 @@ function Books() {
 
   // Load all books and store them with setBooks
   useEffect(() => {
-    loadBooks()
+    loadLists()
   }, [])
 
   // Loads all books and sets them to books
-  function loadBooks() {
-    API.getBooks()
+  function loadLists() {
+    API.getLists()
       .then(res => 
-        setBooks(res.data)
+        setLists(res.data)
       )
       .catch(err => console.log(err));
   };
 
-  // Deletes a book from the database with a given id, then reloads books from the db
-  function deleteBook(id) {
-    API.deleteBook(id)
-      .then(res => loadBooks())
+  // Deletes a list from the database with a given id, then reloads books from the db
+  function deleteList(id) {
+    API.deleteList(id)
+      .then(res => loadLists())
       .catch(err => console.log(err));
   }
 
@@ -42,12 +42,12 @@ function Books() {
     setFormObject({...formObject, [name]: value})
   };
 
-  // When the form is submitted, use the API.saveBook method to save the book data
+  // When the form is submitted, use the API.saveBook method to save the list data
   // Then reload books from the database
   function handleFormSubmit(event) {
     event.preventDefault();
     if (formObject.title && formObject.author) {
-      API.saveBook({
+      API.saveList({
         title: formObject.title,
         author: formObject.author,
         synopsis: formObject.synopsis
@@ -57,7 +57,7 @@ function Books() {
           author: "",
           synopsis: ""
         }))
-        .then(() => loadBooks())
+        .then(() => loadLists())
         .catch(err => console.log(err));
     }
   };
@@ -100,17 +100,17 @@ function Books() {
             <Jumbotron>
               <h1>My List of Items</h1>
             </Jumbotron>
-            {books.length ? (
+            {lists.length ? (
               <List>
-                {books.map(book => {
+                {lists.map(list => {
                   return (
-                    <ListItem key={book._id}>
-                      <a href={"/books/" + book._id}>
+                    <ListItem key={list._id}>
+                      <a href={"/books/" + list._id}>
                         <strong>
-                          {book.title} by {book.author}
+                          {list.title} by {list.author}
                         </strong>
                       </a>
-                      <DeleteBtn onClick={() => deleteBook(book._id)} />
+                      <DeleteBtn onClick={() => deleteList(list._id)} />
                     </ListItem>
                   );
                 })}
@@ -125,4 +125,4 @@ function Books() {
   }
 
 
-export default Books;
+export default Lists;
