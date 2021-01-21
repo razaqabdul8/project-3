@@ -10,11 +10,11 @@ const userSchema = new Schema({
     if(!this.isModified("password")) {
         return next();
     }
-    this.password = Bcrypt.hashSync(this.password, 10);
+    this.password = bcrypt.hashSync(this.password, 10);
     next();
 });
 userSchema.methods.comparePassword = function(plaintext, callback) {
-  return callback(null, Bcrypt.compareSync(plaintext, this.password));
+  return callback(null, bcrypt.compareSync(plaintext, this.password));
 };
 const User = mongoose.model("User", userSchema);
 module.exports = User;
