@@ -14,18 +14,17 @@ const onHover = () => {
                 <VideoBg autoPlay loop muted src={Video} type='video/pm4' />
             </HeroBg>
             <HeroContent>
-                <HeroH1> Mercy online store </HeroH1>
+                <HeroH1> Marcy online store </HeroH1>
                 <HeroP>
                Let's get personal
                 </HeroP>
                 <HeroBtnWrapper>
-                {/* <a href="/login"  >     */}
-                <Button onClick={() => window.location = '/login'} onMouseEnter={onHover} primary='true'
-                    dark='true' to='/login'>
-                        Login {hover ? <ArrowForward /> : <ArrowRight />}
+                <Button onClick={() => window.location = '/signup'} onMouseEnter={onHover} primary='true'
+                    dark='true' to='/signup'>
+                        Sign Up {hover ? <ArrowForward /> : <ArrowRight />}
                     </Button>
-                    {/* </a> */}
-                    <HeroLink> or create account</HeroLink>
+                    <HeroLink onClick={() => window.location = '/login'} to='/login' nMouseEnter={onHover} primary='true'
+                    dark='true'> Login {hover ? <ArrowForward /> : <ArrowRight />} </HeroLink>
                 </HeroBtnWrapper>
             </HeroContent>
         </HeroContainer>

@@ -11,23 +11,6 @@ const SignUp = ({ submitForm }) => {
             <h1>Get started with us today! Create your account by filling out the information below.</h1>
             <div className='form-inputs'>
               <label
-               htmlFor='username' 
-               className='form-label'>
-               Username
-              </label>
-              <input 
-                id='username'
-                type='text' 
-                name='username' 
-                className='form-input'
-                placeholder='Enter your username'
-                value={ values.username }
-                onChange={ handleChange }
-                 />
-                 {errors.username && <p>{errors.username}</p>}
-            </div>
-            <div className='form-inputs'>
-              <label
                htmlFor='email' 
                className='form-label'>
                 Email
@@ -71,7 +54,7 @@ const SignUp = ({ submitForm }) => {
                 type='password' 
                 name='password2' 
                 className='form-input'
-                placeholder='Enter your email address'
+                placeholder='Confirm your password'
                 value={ values.password2 }
                 onChange={ handleChange }
                  />
@@ -79,7 +62,7 @@ const SignUp = ({ submitForm }) => {
             </div>
             <button className='form-input-btn' type='submit'>Sign Up</button>
             <span className='form-input-login'>Already have an account? Login  \ 
-            <a href='#'>here</a></span>
+            <a href='/login'>here</a></span>
           </form>
         </div>
 

@@ -54,7 +54,8 @@ justify-content: center;
 font-size: 1.5rem;
 text-decoration: none;
 transition: 0.2s ease-in-out;
-color: #8c92ac;
+//color: #8c92ac;
+color: #fff;
 cursor: pointer;
 margin-top: 64px;
 &:hover {
