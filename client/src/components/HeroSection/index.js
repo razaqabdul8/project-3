@@ -14,7 +14,7 @@ const onHover = () => {
                 <VideoBg autoPlay loop muted src={Video} type='video/pm4' />
             </HeroBg>
             <HeroContent>
-                <HeroH1> Marcy online store </HeroH1>
+                <HeroH1> Marcy Marketplace </HeroH1>
                 <HeroP>
                Let's get personal
                 </HeroP>
