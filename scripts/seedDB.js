@@ -4,8 +4,13 @@ const db = require("../models");
 // This file empties the Books collection and inserts the books below
 
 mongoose.connect(
-  process.env.MONGODB_URI ||
-  "mongodb://localhost/project3demo"
+  process.env.MONGODB_URI || 'mongodb://localhost/marsymarketplace',
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false
+  }
 );
 
 const listSeed = [
@@ -123,7 +128,7 @@ const listSeed = [
   }
 ];
 const userSeed = [{
-  email:"yigezu.mulu@gmail.com",
+  email: "yigezu.mulu@gmail.com",
   password: "Naod0512"
 }]
 db.User
@@ -138,7 +143,7 @@ db.User
     process.exit(1);
   });
 
-  db.List
+db.List
   .remove({})
   .then(() => db.List.collection.insertMany(listSeed))
   .then(data => {
