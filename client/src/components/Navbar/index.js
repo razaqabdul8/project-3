@@ -4,9 +4,7 @@ import { GiShoppingCart } from 'react-icons/gi';
 import { MdPersonOutline } from 'react-icons/md';
 import { RiChat1Line } from 'react-icons/ri';
 import { FaBars } from 'react-icons/fa';
-import { NavBar, NavbarContainer, NavLogo, NavLinks, NavMenu, NavItem, MobileIcon } from './NavbarElements';
-import Logo from '../../logo.png'
-import { Link } from 'react-router-dom';
+import { NavBar, NavbarContainer, NavLogo, NavLinks, NavMenu, MobileIcon } from './NavbarElements';
 import { animateScroll as scroll } from 'react-scroll';
 
 const Nav = ({ toggle }) => {
@@ -32,18 +30,15 @@ const Nav = ({ toggle }) => {
             <NavBar >
           
                 <NavbarContainer>
-                <NavLogo to='/' onClick={toggleHome}>Mercy</NavLogo>
+                <NavLogo to='/' onClick={toggleHome}>Marcy</NavLogo>
                 <MobileIcon onClick={toggle}>
                         <FaBars />
                     </MobileIcon>
                 <NavMenu>
-                  <NavLinks><BiHomeHeart /></NavLinks>
-                    
-                 
-                    <NavLinks><GiShoppingCart /></NavLinks>
-                
-                    <NavLinks  onClick={() => window.location = '/login'}><MdPersonOutline /></NavLinks>
-                    <NavLinks><RiChat1Line /></NavLinks>
+                    <NavLinks to='/'><BiHomeHeart /></NavLinks>
+                    <NavLinks to='/items'><GiShoppingCart /></NavLinks>
+                    <NavLinks  onClick={() => window.location = '/login'} to='login' smooth={true} duration={500} spy={true} exact='true' offset={-80}><MdPersonOutline /></NavLinks>
+                    <NavLinks to='/contact'><RiChat1Line /></NavLinks>
                       
                 </NavMenu>
                 </NavbarContainer>

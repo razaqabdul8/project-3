@@ -11,7 +11,7 @@ padding: 0 30px;
 height: 800px;
 position: relative;
 z-index: 1;
-:befor {
+:before {
     content: '';
     top: 0;
     left: 0;

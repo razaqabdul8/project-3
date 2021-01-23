@@ -11,7 +11,7 @@ const Sidebar = ({isOpen, toggle}) => {
         <SidebarWrapper>
             <SidebarMenu>
                 <SidebarLink to='login' onClick={toggle}
-                onClick={() => window.location = '/login'}>Login</SidebarLink>
+                onClick={() => window.location = '/login'} >Login</SidebarLink>
                 <SidebarLink to='contact' onClick={toggle}>Contact</SidebarLink>
             </SidebarMenu>
         </SidebarWrapper>
