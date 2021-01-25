@@ -12,7 +12,8 @@ const Sidebar = ({isOpen, toggle}) => {
             <SidebarMenu>
                 <SidebarLink to='login' onClick={toggle}
                 onClick={() => window.location = '/login'} >Login</SidebarLink>
-                <SidebarLink to='contact' onClick={toggle}>Contact</SidebarLink>
+                <SidebarLink to='list' onClick={toggle}
+               >Lists</SidebarLink>
             </SidebarMenu>
         </SidebarWrapper>
         </SidebarContainer>  

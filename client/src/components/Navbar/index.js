@@ -36,7 +36,7 @@ const Nav = ({ toggle }) => {
                     </MobileIcon>
                 <NavMenu>
                     <NavLinks to='/'><BiHomeHeart /></NavLinks>
-                    <NavLinks to='/items'><GiShoppingCart /></NavLinks>
+                    <NavLinks  onClick={() => window.location = '/lists'} to='lists' smooth={true} duration={500} spy={true} exact='true' offset={-80}><GiShoppingCart /></NavLinks>
                     <NavLinks  onClick={() => window.location = '/login'} to='login' smooth={true} duration={500} spy={true} exact='true' offset={-80}><MdPersonOutline /></NavLinks>
                     <NavLinks to='/contact'><RiChat1Line /></NavLinks>
                       
