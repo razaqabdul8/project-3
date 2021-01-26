@@ -128,8 +128,8 @@ const listSeed = [
   }
 ];
 const userSeed = [{
-  email: "yigezu.mulu@gmail.com",
-  password: "Naod0512"
+  email: "mongolmaa555@gmail.com",
+  password: "123456"
 }]
 db.User
   .remove({})
