@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt");
   const router = express.Router();
   // signup route
   // Matches with "/api/user/signup"
-  router.post("/register", async (request, response) => {
+  router.post("/signup", async (request, response) => {
     try {
         var user = new User(request.body);
         var result = await user.save();

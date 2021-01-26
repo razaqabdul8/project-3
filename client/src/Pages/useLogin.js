@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import API from '../utils/API';
 
-const useForm = (callback, validate) => {
+const useLogin = (callback, validate) => {
     const [values, setValues ] = useState({
         email: '',
         password: '',
@@ -9,6 +9,7 @@ const useForm = (callback, validate) => {
     })
     const [errors, setErrors] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
 
     const handleChange = e => {
         const { name, value } = e.target
@@ -24,11 +25,12 @@ const useForm = (callback, validate) => {
 
         //This is where we modify
        
-            API.signup({
+            API.login({
               email: values.email,
               password: values.password
             })
               .then(() => setIsSubmitting(true))
+              .then(() => setIsAuthenticated(true))
               .catch(err => console.log(err));
        
 
@@ -41,7 +43,7 @@ const useForm = (callback, validate) => {
         }
     }, [errors])
 
-    return { handleChange, values, handleSubmit, errors };
+    return { handleChange, values, handleSubmit, errors, isAuthenticated };
 };
 
-export default useForm;
+export default useLogin;
