@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import API from '../utils/API';
+import {useHistory} from 'react-router-dom';
 
 const useForm = (callback, validate) => {
+    const history = useHistory();
     const [values, setValues ] = useState({
         email: '',
         password: '',
@@ -28,7 +30,10 @@ const useForm = (callback, validate) => {
               email: values.email,
               password: values.password
             })
-              .then(() => setIsSubmitting(true))
+              .then(() => {
+                  history.push("/login")
+                  setIsSubmitting(true)
+                })
               .catch(err => console.log(err));
        
 

@@ -1,7 +1,12 @@
 import { useState, useEffect } from 'react';
 import API from '../utils/API';
+import {useLoginContext} from '../utils/GlobalState';
+import {useHistory} from 'react-router-dom';
 
 const useLogin = (callback, validate) => {
+    const [state, dispatch] = useLoginContext(); 
+    // This is new addition
+    const history = useHistory();
     const [values, setValues ] = useState({
         email: '',
         password: '',
@@ -9,7 +14,7 @@ const useLogin = (callback, validate) => {
     })
     const [errors, setErrors] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    // const [isAuthenticated, setIsAuthenticated] = useState(false);
 
     const handleChange = e => {
         const { name, value } = e.target
@@ -24,13 +29,18 @@ const useLogin = (callback, validate) => {
             setErrors(validate(values));
 
         //This is where we modify
-       
+        setIsSubmitting(true)
             API.login({
               email: values.email,
               password: values.password
             })
-              .then(() => setIsSubmitting(true))
-              .then(() => setIsAuthenticated(true))
+              .then((res) => {
+                  console.log(res);
+                  dispatch({type:"login", res});
+                  history.push("/User");
+                  setIsSubmitting(true)
+                })
+            
               .catch(err => console.log(err));
        
 
@@ -43,7 +53,7 @@ const useLogin = (callback, validate) => {
         }
     }, [errors])
 
-    return { handleChange, values, handleSubmit, errors, isAuthenticated };
+    return { handleChange, values, handleSubmit, errors };
 };
 
 export default useLogin;

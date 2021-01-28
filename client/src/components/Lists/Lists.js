@@ -106,7 +106,7 @@ function Lists() {
               {lists.map(list => {
                 return (
                   <ListItem key={list._id}>
-                    <a href={"/books/" + list._id}>
+                    <a href={"/lists/" + list._id}>
                       <strong>
                         {list.title} by {list.author}
                       </strong>
