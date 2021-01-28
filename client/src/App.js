@@ -5,7 +5,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Form from './Pages/Form.js';
 import LoginForm from './Pages/LoginForm.js';
 import Lists from './components/Lists';
-import User  from './components/User ';
+import User  from './components/User';
 function App() {
 
   return (<BrowserRouter>
