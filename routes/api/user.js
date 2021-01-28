@@ -8,6 +8,7 @@ const bcrypt = require("bcrypt");
     try {
         var user = new User(request.body);
         var result = await user.save();
+        result.password = "";
         response.send(result);
     } catch (error) {
         response.status(500).send(error);
@@ -27,7 +28,9 @@ const bcrypt = require("bcrypt");
                 return response.status(400).send({ message: "The password is invalid" });
             }
         });
-        response.send({ message: "The username and password combination is correct!" });
+        // response.send({ message: "The username and password combination is correct!" });
+        user.password = "";
+        response.json(user);
     } catch (error) {
         response.status(500).send(error);
     }

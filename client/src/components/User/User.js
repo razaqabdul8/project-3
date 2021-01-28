@@ -23,7 +23,7 @@ function User() {
 
   // Loads all books and sets them to books
   function loadLists() {
-    API.getLists()
+    API.getWishLists()
       .then(res =>
         setLists(res.data)
       )
@@ -32,7 +32,7 @@ function User() {
 
   // Deletes a list from the database with a given id, then reloads books from the db
   function deleteList(id) {
-    API.deleteList(id)
+    API.deleteWishList(id)
       .then(res => loadLists())
       .catch(err => console.log(err));
   }
@@ -48,7 +48,7 @@ function User() {
   function handleFormSubmit(event) {
     event.preventDefault();
     if (formObject.title && formObject.author) {
-      API.saveList({
+      API.saveWishList({
         title: formObject.title,
         author: formObject.author,
         synopsis: formObject.synopsis
@@ -106,7 +106,7 @@ function User() {
               {lists.map(list => {
                 return (
                   <ListItem key={list._id}>
-                    <a href={"/books/" + list._id}>
+                    <a href={"/lits/" + list._id}>
                       <strong>
                         {list.title} by {list.author}
                       </strong>
