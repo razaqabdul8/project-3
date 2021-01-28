@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import API from '../utils/API';
-import {useLoginContext} from '../utils/GlobalState';
 
 const useLogin = (callback, validate) => {
     const [values, setValues ] = useState({
