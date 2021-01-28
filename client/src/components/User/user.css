@@ -1,0 +1,36 @@
+.user-profile-wrapper{
+    min-height: 100vh;
+    padding: 30px;
+}
+.user-profile-wrapper .user-profile-content{
+    width: 900px;
+    margin: auto;
+}
+.user-profile-wrapper .user-profile-content .user-info{
+    border: 1px solid black;
+    padding: 10px;
+    display: flex;
+}
+/* .user-profile-wrapper .user-profile-content .user-info .user-avatar{
+
+} */
+.user-profile-wrapper .user-profile-content .user-info .user-details{
+    flex:1;
+}
+.user-profile-wrapper .user-profile-content .user-info .user-details .user-name{
+    color: rgb(173, 214, 173);
+    margin-left: 50px;
+}
+
+.user-profile-wrapper .user-profile-content .list-details{
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px 0px;
+}
+
+.user-profile-wrapper .user-profile-content .list-details .list-item{
+    border:1px solid greenyellow;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+}
