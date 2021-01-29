@@ -48,7 +48,7 @@ function User() {
   function handleFormSubmit(event) {
     event.preventDefault();
     if (formObject.title && formObject.author) {
-      API.saveWishList({
+      API.saveWishLists({
         title: formObject.title,
         author: formObject.author,
         synopsis: formObject.synopsis
@@ -68,7 +68,7 @@ function User() {
       <Row>
         <Col size="md-6">
           <Jumbotron>
-            <h1>List Your Items Here</h1>
+            <h1>Add to your Purchase Wishlist Here</h1>
           </Jumbotron>
           <form>
             <Input
@@ -93,22 +93,22 @@ function User() {
               disabled={!(formObject.author && formObject.title)}
               onClick={handleFormSubmit}
             >
-              Submit Book
+              Submit Item
               </FormBtn>
           </form>
         </Col>
         <Col size="md-6 sm-12">
           <Jumbotron>
-            <h1>My List of Items</h1>
+            <h1>Your Purchase Wishlist</h1>
           </Jumbotron>
           {lists.length ? (
             <List>
               {lists.map(list => {
                 return (
                   <ListItem key={list._id}>
-                    <a href={"/lits/" + list._id}>
+                    <a href={"/wishlits/" + list._id}>
                       <strong>
-                        {list.title} by {list.author}
+                        {list.title} : $ {list.author}
                       </strong>
                     </a>
                     <DeleteBtn onClick={() => deleteList(list._id)} />
