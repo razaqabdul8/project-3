@@ -3,20 +3,21 @@ import Jumbotron from "../Jumbotron";
 import DeleteBtn from "../DeleteBtn";
 import ItemPickBtn from "../ItemPickBtn";
 import API from "../../utils/API";
-import {useLoginContext} from '../../utils/GlobalState';
+import { useLoginContext } from '../../utils/GlobalState';
 import { Col, Row, Container } from "../Grid";
 import { List, ListItem } from "../List";
 import { Input, TextArea, FormBtn } from "../Form";
 import Navbar from '../Navbar';
 import Sidebar from '../SideBar'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "./Lists.css"
 
 function Lists() {
-  const [state, dispatch] = useLoginContext(); 
+  const [state, dispatch] = useLoginContext();
   // Setting our component's initial state
-  const[ isOpen, setIsOpen ] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const toggle = () => {
-      setIsOpen(!isOpen)
+    setIsOpen(!isOpen)
   };
   const [lists, setLists] = useState([])
   const [formObject, setFormObject] = useState({
@@ -47,10 +48,10 @@ function Lists() {
   }
 
   function savetowishList(id) {
-    const item = lists.filter((list)=> list._id == id);
+    const item = lists.filter((list) => list._id == id);
     // console.log(state.id);
     // item[0].usrid = state.id;
-    API.saveWishLists(item[0])    
+    API.saveWishLists(item[0])
       .then(res => alert("Item added to wish list"))
       .catch(err => console.log(err));
   }
@@ -82,16 +83,16 @@ function Lists() {
   };
 
   return (
-    <Container fluid>
-      <div className="mb-3">      
-      <Sidebar isOpen={isOpen} toggle={toggle} />
-      <Navbar toggle={toggle} />        
+    <Container fluid className="page">
+      <div className="mb-3">
+        <Sidebar isOpen={isOpen} toggle={toggle} />
+        <Navbar toggle={toggle} />
       </div>
 
       <Row>
         <Col size="md-6">
           <Jumbotron>
-            <h1>Add Items to the List Here</h1>
+            <h1 className="stylelist">Add Items to the List Here</h1>
           </Jumbotron>
           <form>
             <Input
@@ -102,9 +103,9 @@ function Lists() {
             />
             <Input
               onChange={handleInputChange}
-              name="author" 
+              name="author"
               type="number"
-              formatter="currency"            
+              formatter="currency"
               placeholder="Unit Price (required)"
               value={formObject.author}
             />
@@ -114,7 +115,7 @@ function Lists() {
               placeholder="Description (Optional)"
               value={formObject.synopsis}
             />
-            <FormBtn
+            <FormBtn id="button"
               disabled={!(formObject.author && formObject.title)}
               onClick={handleFormSubmit}
             >
@@ -124,7 +125,7 @@ function Lists() {
         </Col>
         <Col size="md-6 sm-12">
           <Jumbotron>
-            <h1>List of Available Items</h1>
+            <h1 className="stylelist">List of Available Items</h1>
           </Jumbotron>
           {lists.length ? (
             <List>
@@ -138,7 +139,7 @@ function Lists() {
                       </strong>
                     </span>
                     <DeleteBtn onClick={() => deleteList(list._id)} />
-                    
+
                   </ListItem>
                 );
               })}
