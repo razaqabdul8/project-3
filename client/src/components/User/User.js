@@ -91,11 +91,11 @@ function User() {
             {lists.map(list => {
               return (
                 <ListItem key={list._id}>
-                  <a href={"/wishlits/" + list._id}>
+                  <span>
                     <strong>
                       {list.title} : $ {list.author}
                     </strong>
-                  </a>
+                  </span>
                   <DeleteBtn onClick={() => deleteList(list._id)} />
                 </ListItem>
               );
