@@ -132,11 +132,11 @@ function Lists() {
                 return (
                   <ListItem key={list._id}>
                     <ItemPickBtn onClick={() => savetowishList(list._id)} />
-                    <a href={"/lists/" + list._id}>
+                    <span>
                       <strong>
                         {list.title} {": $"} {list.author}
                       </strong>
-                    </a>
+                    </span>
                     <DeleteBtn onClick={() => deleteList(list._id)} />
                     
                   </ListItem>
