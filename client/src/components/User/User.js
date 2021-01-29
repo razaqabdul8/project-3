@@ -80,13 +80,15 @@ function User() {
             <Input
               onChange={handleInputChange}
               name="author"
-              placeholder="Author (required)"
+              type="number"
+              formatter="currency" 
+              placeholder="Unit Price (required)"
               value={formObject.author}
             />
             <TextArea
               onChange={handleInputChange}
               name="synopsis"
-              placeholder="Synopsis (Optional)"
+              placeholder="Description (Optional)"
               value={formObject.synopsis}
             />
             <FormBtn
