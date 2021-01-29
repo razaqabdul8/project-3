@@ -18,20 +18,20 @@ export default {
     return axios.post("/api/lists", bookData);
   },
   // wish list routes    
-    getWshLists: function() {
-      return axios.get("/api/wishlits");
+    getWishLists: function() {
+      return axios.get("/api/wishlists");
     },
     // Gets the book with the given id
-    getWishLists: function(id) {
-      return axios.get("/api/wishlits/" + id);
+    getWishList: function(id) {
+      return axios.get("/api/wishlists/" + id);
     },
     // Deletes the book with the given id
-    deleteWshLists: function(id) {
-      return axios.delete("/api/wishlits/" + id);
+    deleteWishList: function(id) {
+      return axios.delete("/api/wishlists/" + id);
     },
     // Saves a book to the database
-    saveWshLists: function(bookData) {
-      return axios.post("/api/wishlits", bookData);
+    saveWishLists: function(bookData) {
+      return axios.post("/api/wishlists", bookData);
     },
   // 
   login: function(loginData){
