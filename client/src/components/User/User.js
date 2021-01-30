@@ -7,8 +7,13 @@ import { List, ListItem } from "../List";
 import { Input, TextArea, FormBtn } from "../Form";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { useLoginContext } from '../../utils/GlobalState';
-import Navbar from '../Navbar';
 import Sidebar from '../SideBar'
+import { GiShoppingCart } from 'react-icons/gi';
+import { MdPersonOutline } from 'react-icons/md';
+import { FaBars } from 'react-icons/fa';
+import { NavBar, NavbarContainer, NavLogo, NavLinks, NavMenu, MobileIcon } from '../Navbar/NavbarElements';
+import { BiHomeHeart } from 'react-icons/bi';
+import {BodyContainer, UserContent} from './UserElements';
 function User() {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => {
@@ -74,9 +79,22 @@ function User() {
     <Container fluid>
       <div className="mb-3">
         <Sidebar isOpen={isOpen} toggle={toggle} />
-        <Navbar toggle={toggle} />
+        <NavBar >
+          <NavbarContainer>
+          <NavLogo >Marcy</NavLogo>
+          <MobileIcon onClick={toggle}>
+                  <FaBars />
+              </MobileIcon>
+          <NavMenu>
+          <NavLinks  onClick={() => window.location = '/'} to='Home' smooth={true} duration={500} spy={true} exact='true' offset={-80}><BiHomeHeart /></NavLinks>
+              <NavLinks  onClick={() => window.location = '/lists'} to='lists' smooth={true} duration={500} spy={true} exact='true' offset={-80}><GiShoppingCart /></NavLinks>
+              <NavLinks  onClick={() => window.location = '/User'} to='User' smooth={true} duration={500} spy={true} exact='true' offset={-80}><MdPersonOutline /></NavLinks>
+             </NavMenu>
+          </NavbarContainer>
+      </NavBar>
+      
       </div>
-      <div style={{ width: '800px', margin: 'auto', padding: '30px;', textAlign: 'center' }}>
+      <div className='user' style={{ margin: 'auto', padding: '30px;', textAlign: 'center' }}>
         <h2>{state && state.email ? state.email : ''}</h2>
         <br />
         <img width="150px" src="https://st2.depositphotos.com/4111759/12123/v/950/depositphotos_121233262-stock-illustration-male-default-placeholder-avatar-profile.jpg" />
