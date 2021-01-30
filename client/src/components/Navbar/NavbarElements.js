@@ -20,6 +20,7 @@ justify-content: flex-end;
 height: 80px;
 padding: 0 24px;
 max-width: 1100px;
+justify-self: flex-start;
 `
 
 export const NavLogo = styled(LinkRouter)`
@@ -32,13 +33,26 @@ margin-left: 24px;
 // font-weight: bold;
 text-decoration: none;
 margin-top: 24px;
-margin-right: 1020px;
+margin-right: 1100px;
 
 &:hover{
     color: 	rgb(255, 235, 245);
     transition: 0.2s ease-in-out;
     text-decoration: none;
 }
+
+@media screen and (max-width: 480px) {
+    display: none;
+}
+@media screen and (max-width: 728px) {
+    margin-right: 120px;
+}
+// @media screen and (max-width: 1200px) {
+//     margin-right: 1080px;
+// }
+// @media screen and (max-width: 2200px) {
+//     margin-right: 1600px;
+// }
 `;
 
 export const NavLinks = styled(LinkScroll)`
